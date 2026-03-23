@@ -1,0 +1,64 @@
+[project]
+name = "ai-conecta-rag"
+version = "0.1.0"
+description = "Azure RAG Backend (FastAPI)"
+requires-python = ">=3.11"
+
+dependencies = [
+    # FastAPI
+    "fastapi",
+    "uvicorn[standard]",
+
+    # Azure SDK
+    "azure-identity",
+    "azure-keyvault-secrets",
+    "azure-storage-blob",
+    "azure-search-documents",
+    "opencensus-ext-azure"
+
+    # OpenAI (Azure)
+    "openai",
+
+    # Database
+    "psycopg2-binary",
+
+    # Utils
+    "python-dotenv",
+    "requests",
+]
+
+# ----------------------------
+# DEV DEPENDENCIES
+# ----------------------------
+[project.optional-dependencies]
+dev = [
+    "black",
+    "ruff",
+    "pre-commit",
+    "detect-secrets",
+    "pytest",
+    "uv",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+exclude = ["conecta*"]
+
+# ----------------------------
+# BLACK CONFIG
+# ----------------------------
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+# ----------------------------
+# RUFF CONFIG
+# ----------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+lint.select = ["E", "F", "I", "B", "UP"]
+lint.ignore = ["E501"]
+
+fix = true
