@@ -4,12 +4,14 @@ from azure.core.credentials import AzureKeyCredential
 from app.utils.azure_secrets import get_secret
 from app.config.settings import settings
 
+
 def get_client():
     return SearchClient(
-        endpoint=settings.AZURE_SEARCH_ENDPOINT,
-        index_name=settings.AZURE_SEARCH_INDEX,
-        credential=AzureKeyCredential(get_secret("AZURE_SEARCH_KEY"))
+        endpoint=get_secret("AZURE_SEARCH_ENDPOINT"),
+        index_name=get_secret("AZURE_SEARCH_INDEX"),
+        credential=AzureKeyCredential(get_secret("AZURE_SEARCH_KEY")),
     )
+
 
 def retrieve_documents(query: str):
     client = get_client()

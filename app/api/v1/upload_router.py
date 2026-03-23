@@ -3,6 +3,7 @@ from app.services.storage_service import upload_file
 
 router = APIRouter()
 
+
 @router.post("/upload")
 async def upload(file: UploadFile = File(...)):
     data = await file.read()

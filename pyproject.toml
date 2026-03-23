@@ -14,7 +14,7 @@ dependencies = [
     "azure-keyvault-secrets",
     "azure-storage-blob",
     "azure-search-documents",
-    "opencensus-ext-azure"
+    "opencensus-ext-azure",
 
     # OpenAI (Azure)
     "openai",

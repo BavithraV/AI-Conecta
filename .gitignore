@@ -1,0 +1,5 @@
+# Virtual environment
+conecta/
+.venv/
+venv/
+env/

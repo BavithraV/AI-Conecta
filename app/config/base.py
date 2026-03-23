@@ -1,17 +1,9 @@
 import os
 
+
 class BaseConfig:
     ENV = os.getenv("ENV", "dev")
 
     AZURE_KEYVAULT_URL = os.getenv("AZURE_KEYVAULT_URL")
 
     AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
-    AZURE_OPENAI_API_VERSION = "2024-02-01"
-    AZURE_OPENAI_MODEL = os.getenv("AZURE_OPENAI_MODEL")
-
-    AZURE_SEARCH_ENDPOINT = os.getenv("AZURE_SEARCH_ENDPOINT")
-    AZURE_SEARCH_INDEX = os.getenv("AZURE_SEARCH_INDEX")
-
-    AZURE_STORAGE_CONTAINER = os.getenv("AZURE_STORAGE_CONTAINER")
-
-    LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")

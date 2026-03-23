@@ -14,6 +14,7 @@ setup_monitoring()
 app.include_router(chat_router, prefix="/api/v1")
 app.include_router(upload_router, prefix="/api/v1")
 
+
 @app.get("/")
 def health():
     return {"status": "running"}
