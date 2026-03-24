@@ -1,13 +1,21 @@
 from app.services.search_service import retrieve_documents
+from app.services.translator_service import translate
 from app.utils.llm_client import generate_response
-from app.utils.prompts import build_rag_prompt
 
-
-def generate_answer(query: str):
+def rag_pipeline(query: str, lang="en"):
     docs = retrieve_documents(query)
 
     context = "\n".join(docs)
 
-    prompt = build_rag_prompt(context, query)
+    if lang != "en":
+        context = translate(context, lang)
+
+    prompt = f"""
+    Answer ONLY from context:
+
+    {context}
+
+    Question: {query}
+    """
 
     return generate_response(prompt)
